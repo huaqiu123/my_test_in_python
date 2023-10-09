@@ -15,9 +15,9 @@
 #! python3
 # randomQuizGenerator.py - Creates quizzes with questions and answers in
 # random order, along with the answer key.
+import random
 import os
 import random
-
 # The quiz data. Keys are states and values are their capitals.
 capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
 'Arkansas': 'Little Rock', 'California': 'Sacramento', 'Colorado': 'Denver',
@@ -35,58 +35,4 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
 'Nashville', 'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont':
 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'WestVirginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
 # Generate 35 quiz files.
-now_path=os.getcwd()
-# os.makedirs(now_path+'\\student_test\\question')
-# os.makedirs(now_path+'\\student_test\\answer')
-k=[]
-k=list(capitals.keys())
-print(k)
-v=[]
-v=list(capitals.values())
-q_path=now_path+'\\student_test\\question'
-a_path=now_path+'\\student_test\\answer'
-for number in range(1,36):
-    c_path=q_path+'\\'+f'{number}'
-    d_padth=a_path+'\\'+f'{number}'
-    print(c_path)
-    file=open(c_path,'w')
-    file_a=open(d_padth,'w')
-    file.write('hello,now it is your questionaire,please deal with it carefully\n')
-    file.write('name\n')
-    file.write('class\n\n\n')
-    file_a.write('\t\t\tAnswer\n\n')
-    random.shuffle(k)
-    num=0
-    for solo in k:
-        file.write('do you know the capital of '+solo+'\n')
-        num+=1
-        file_a.write(str(num))
-        file_a.write('.  ')
-        file_a.write(capitals[solo]+'\n')
-        temp=random.sample(range(0,35),4)
-        tempword=[k[temp[0]],k[temp[1]],k[temp[2]],k[temp[3]]]
-        if solo in tempword:
-            index1=tempword.index(solo)
-            del tempword[index1]
-            last=tempword[0:2]
-            last.append(solo)
-        else:
-            last=tempword[0:2]
-            last.append(solo)
-        random.shuffle(last)
-        for i in range(0,3):
-            t='A'
-            if i == 42:
-                t='B'
-            if i==43:
-                t='C'
-            last[i]=t+". "+last[i]
-        for i in range(0,3):
-            file.write(last[i]+'\n')
-        file.write('\n\n')
-        
-
-
-
-        
-    
+os.path.makdir
